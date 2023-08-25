@@ -1,9 +1,13 @@
 $(function(){
+    var num = 0;
+    $(".slidebox li").fadeOut(0)
+    $(".slidebox li").eq(num).fadeIn(0)
     setInterval(function(){
-        $("#slide .slidebox").animate({marginLeft:-1200},600,function(){
-            $(this).find("li").eq(0).appendTo($(this));
-            $(this).css("margin-left",0)
-        })
+        if(num<2){
+            num++;
+        }else{num=0;}
+        $(".slidebox li").fadeOut('slow');
+        $(".slidebox li").eq(num).fadeIn('slow')
     },3000)
     $("body").on("click","#threeTabs .nbox li", function(){
         $(".popup").addClass("on")
